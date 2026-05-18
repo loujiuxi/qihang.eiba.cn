@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>启航教育 | 职业技能培训专家 · 成就未来</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #6366f1;
+            --color-primary-light: #818cf8;
+            --color-primary-dark: #4f46e5;
+            --color-secondary: #f59e0b;
+            --color-secondary-light: #fbbf24;
+            --color-accent: #10b981;
+            --color-accent-light: #34d399;
+            --color-dark: #1e1b4b;
+            --color-text-dark: #1f2937;
+            --color-text-medium: #4b5563;
+            --color-text-light: #9ca3af;
+            --color-bg-light: #f8fafc;
+            --color-white: #ffffff;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Noto Sans SC', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-soft: 0 10px 40px rgba(99, 102, 241, 0.1);
+            --shadow-hover: 0 20px 60px rgba(99, 102, 241, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg-light);
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Gradient Background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            padding: 0.7rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .logo-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: var(--color-white);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.7rem 1.8rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 25px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1.3rem;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), rgba(245, 158, 11, 0.1));
+            border-radius: 25px;
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--color-dark);
+            letter-spacing: -1px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--color-text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: var(--color-white);
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image-container {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .hero-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-float-card {
+            position: absolute;
+            background: var(--color-white);
+            padding: 1.2rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-hover);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-float-card.card-1 {
+            top: 30px;
+            left: -30px;
+        }
+
+        .hero-float-card.card-2 {
+            bottom: 30px;
+            right: -30px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .float-icon.purple {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+        }
+
+        .float-icon.orange {
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+        }
+
+        .float-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--color-white);
+        }
+
+        .float-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+
+        .float-text p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 6rem 5%;
+            background: var(--color-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--color-primary);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--color-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: var(--color-text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: var(--color-bg-light);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .course-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: var(--color-white);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+
+        .course-content {
+            padding: 1.8rem;
+        }
+
+        .course-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--color-text-dark);
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .course-meta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .course-price {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-secondary);
+        }
+
+        .course-price small {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--color-text-light);
+        }
+
+        .course-btn {
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .course-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Salary Section */
+        .salary {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--color-dark) 0%, #312e81 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .salary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .salary .section-label {
+            color: var(--color-secondary-light);
+        }
+
+        .salary .section-title {
+            color: var(--color-white);
+        }
+
+        .salary .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .salary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .salary-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .salary-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+        }
+
+        .salary-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .salary-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--color-white);
+        }
+
+        .salary-job {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .salary-company {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        .salary-range {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .salary-amount {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--color-secondary-light);
+        }
+
+        .salary-period {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .salary-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .salary-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(99, 102, 241, 0.3);
+            color: var(--color-primary-light);
+            font-size: 0.8rem;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 5%;
+            background: var(--color-bg-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--color-white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .portfolio-item:nth-child(1),
+        .portfolio-item:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .portfolio-item:nth-child(1) img,
+        .portfolio-item:nth-child(5) img {
+            height: 300px;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(30, 27, 75, 0.95), transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.75rem;
+            border-radius: 15px;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .portfolio-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-student {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Teachers Section */
+        .teachers {
+            padding: 6rem 5%;
+            background: var(--color-white);
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .teacher-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--color-bg-light);
+            border-radius: 25px;
+            transition: var(--transition-smooth);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .teacher-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--color-primary-light);
+            position: relative;
+        }
+
+        .teacher-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .teacher-card:hover .teacher-image img {
+            transform: scale(1.1);
+        }
+
+        .teacher-name {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .teacher-title {
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .teacher-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-medium);
+            line-height: 1.7;
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(245, 158, 11, 0.05));
+        }
+
+        .booking-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .booking-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: var(--color-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .booking-content p {
+            color: var(--color-text-medium);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .booking-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .booking-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .booking-feature-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .booking-feature-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--color-white);
+        }
+
+        .booking-feature span {
+            font-size: 0.95rem;
+            color: var(--color-text-dark);
+            font-weight: 500;
+        }
+
+        .booking-form {
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .form-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--color-text-medium);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: var(--color-bg-light);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            color: var(--color-text-dark);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: var(--color-white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 6rem 5%;
+            background: var(--color-white);
+        }
+
+        .map-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--color-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--color-bg-light);
+            border-radius: 18px;
+            transition: var(--transition-smooth);
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .contact-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--color-white);
+        }
+
+        .contact-details h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--color-text-dark);
+        }
+
+        .contact-details p {
+            color: var(--color-text-medium);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .map-wrapper {
+            height: 450px;
+            background: var(--color-bg-light);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            background: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-brand .logo-text {
+            color: var(--color-white);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-social a:hover {
+            background: var(--color-primary);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-white);
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            font-weight: 400;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--color-primary-light);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .hero-float-card {
+                display: none;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item:nth-child(1),
+            .portfolio-item:nth-child(5) {
+                grid-column: span 2;
+            }
+
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .hero-image-container img {
+                height: 350px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item:nth-child(1),
+            .portfolio-item:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .booking-features {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Gradient Background -->
+    <div class="gradient-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <span class="logo-text">启航<span>教育</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#courses">热门课程</a></li>
+            <li><a href="#salary">就业薪资</a></li>
+            <li><a href="#portfolio">学员作品</a></li>
+            <li><a href="#teachers">师资团队</a></li>
+            <li><a href="#booking">免费试听</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+        <a href="#booking" class="nav-cta">立即咨询</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    职业技能培训领军品牌
+                </div>
+                <h1 class="hero-title">技能改变命运<br><span>学习成就未来</span></h1>
+                <p class="hero-description">
+                    专注IT技术培训10年，累计培养学员超过10万人。从零基础到就业，一站式服务，让每个人都能掌握一技之长，实现职业梦想。
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10万+</div>
+                        <div class="stat-label">培训学员</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">就业率</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">合作企业</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn-primary">免费试听</a>
+                    <a href="#courses" class="btn-secondary">查看课程</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="培训课堂">
+                </div>
+                <div class="hero-float-card card-1">
+                    <div class="float-icon purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <div class="float-text">
+                        <h4>就业保障</h4>
+                        <p>签订就业协议</p>
+                    </div>
+                </div>
+                <div class="hero-float-card card-2">
+                    <div class="float-icon orange">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="float-text">
+                        <h4>高薪就业</h4>
+                        <p>平均薪资12K+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="section-header fade-in">
+            <p class="section-label">Popular Courses</p>
+            <h2 class="section-title">热门培训课程</h2>
+            <p class="section-description">紧跟行业需求，打造高薪技能人才</p>
+        </div>
+        <div class="courses-grid">
+            <div class="course-card fade-in">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="前端开发">
+                    <span class="course-badge">热门</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">前端开发工程师</h3>
+                    <div class="course-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            4个月
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                            1280人学习
+                        </span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">¥12,800</div>
+                        <a href="#booking" class="course-btn">了解详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card fade-in">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80" alt="Python开发">
+                    <span class="course-badge">推荐</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Python全栈开发</h3>
+                    <div class="course-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            5个月
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                            956人学习
+                        </span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">¥15,800</div>
+                        <a href="#booking" class="course-btn">了解详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card fade-in">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="数据分析">
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">数据分析与挖掘</h3>
+                    <div class="course-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            3个月
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                            823人学习
+                        </span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">¥9,800</div>
+                        <a href="#booking" class="course-btn">了解详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card fade-in">
+                <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1561736778-92e52a7769ef?w=600&q=80" alt="UI设计">
+                    <span class="course-badge">新课</span>
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">UI/UX设计师</h3>
+                    <div class="course-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            4个月
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                            678人学习
+                        </span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">¥11,800</div>
+                        <a href="#booking" class="course-btn">了解详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Salary Section -->
+    <section class="salary" id="salary">
+        <div class="section-header fade-in">
+            <p class="section-label">Employment Salary</p>
+            <h2 class="section-title">学员就业薪资</h2>
+            <p class="section-description">真实就业数据，见证培训成果</p>
+        </div>
+        <div class="salary-grid">
+            <div class="salary-card fade-in">
+                <div class="salary-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                    </svg>
+                </div>
+                <h3 class="salary-job">前端开发工程师</h3>
+                <p class="salary-company">字节跳动</p>
+                <div class="salary-range">
+                    <span class="salary-amount">18-25K</span>
+                    <span class="salary-period">/月</span>
+                </div>
+                <div class="salary-tags">
+                    <span class="salary-tag">Vue</span>
+                    <span class="salary-tag">React</span>
+                    <span class="salary-tag">TypeScript</span>
+                </div>
+            </div>
+            <div class="salary-card fade-in">
+                <div class="salary-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                    </svg>
+                </div>
+                <h3 class="salary-job">Python开发工程师</h3>
+                <p class="salary-company">腾讯科技</p>
+                <div class="salary-range">
+                    <span class="salary-amount">20-30K</span>
+                    <span class="salary-period">/月</span>
+                </div>
+                <div class="salary-tags">
+                    <span class="salary-tag">Django</span>
+                    <span class="salary-tag">Flask</span>
+                    <span class="salary-tag">MySQL</span>
+                </div>
+            </div>
+            <div class="salary-card fade-in">
+                <div class="salary-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                    </svg>
+                </div>
+                <h3 class="salary-job">数据分析师</h3>
+                <p class="salary-company">阿里巴巴</p>
+                <div class="salary-range">
+                    <span class="salary-amount">15-22K</span>
+                    <span class="salary-period">/月</span>
+                </div>
+                <div class="salary-tags">
+                    <span class="salary-tag">Python</span>
+                    <span class="salary-tag">SQL</span>
+                    <span class="salary-tag">Tableau</span>
+                </div>
+            </div>
+            <div class="salary-card fade-in">
+                <div class="salary-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                    </svg>
+                </div>
+                <h3 class="salary-job">UI设计师</h3>
+                <p class="salary-company">美团点评</p>
+                <div class="salary-range">
+                    <span class="salary-amount">12-18K</span>
+                    <span class="salary-period">/月</span>
+                </div>
+                <div class="salary-tags">
+                    <span class="salary-tag">Figma</span>
+                    <span class="salary-tag">Sketch</span>
+                    <span class="salary-tag">PS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-header fade-in">
+            <p class="section-label">Student Works</p>
+            <h2 class="section-title">学员作品展示</h2>
+            <p class="section-description">真实项目实战，打造企业级作品集</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="电商平台">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">前端开发</span>
+                    <h3 class="portfolio-title">电商平台前端系统</h3>
+                    <p class="portfolio-student">学员：张明 · 就业薪资18K</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="数据可视化">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">数据分析</span>
+                    <h3 class="portfolio-title">销售数据可视化大屏</h3>
+                    <p class="portfolio-student">学员：李娜 · 就业薪资16K</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80" alt="APP设计">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">UI设计</span>
+                    <h3 class="portfolio-title">健身APP界面设计</h3>
+                    <p class="portfolio-student">学员：王芳 · 就业薪资14K</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80" alt="后台系统">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Python开发</span>
+                    <h3 class="portfolio-title">企业后台管理系统</h3>
+                    <p class="portfolio-student">学员：刘强 · 就业薪资20K</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80" alt="小程序">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">前端开发</span>
+                    <h3 class="portfolio-title">社区服务小程序</h3>
+                    <p class="portfolio-student">学员：陈伟 · 就业薪资15K</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80" alt="品牌设计">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">UI设计</span>
+                    <h3 class="portfolio-title">品牌视觉设计</h3>
+                    <p class="portfolio-student">学员：赵敏 · 就业薪资13K</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers" id="teachers">
+        <div class="section-header fade-in">
+            <p class="section-label">Our Teachers</p>
+            <h2 class="section-title">金牌讲师团队</h2>
+            <p class="section-description">行业大咖授课，实战经验丰富</p>
+        </div>
+        <div class="teachers-grid">
+            <div class="teacher-card fade-in">
+                <div class="teacher-image">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="张教授">
+                </div>
+                <h3 class="teacher-name">张伟</h3>
+                <p class="teacher-title">前端技术总监 · 12年经验</p>
+                <p class="teacher-desc">前阿里巴巴高级前端工程师，主导多个千万级用户项目开发</p>
+            </div>
+            <div class="teacher-card fade-in">
+                <div class="teacher-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="李老师">
+                </div>
+                <h3 class="teacher-name">李明</h3>
+                <p class="teacher-title">Python技术专家 · 10年经验</p>
+                <p class="teacher-desc">前腾讯后端架构师，精通Python全栈开发与系统架构设计</p>
+            </div>
+            <div class="teacher-card fade-in">
+                <div class="teacher-image">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="王老师">
+                </div>
+                <h3 class="teacher-name">王芳</h3>
+                <p class="teacher-title">UI设计总监 · 8年经验</p>
+                <p class="teacher-desc">前网易设计主管，服务过多家知名互联网公司品牌设计</p>
+            </div>
+            <div class="teacher-card fade-in">
+                <div class="teacher-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="刘老师">
+                </div>
+                <h3 class="teacher-name">刘强</h3>
+                <p class="teacher-title">数据分析专家 · 9年经验</p>
+                <p class="teacher-desc">前字节跳动数据分析师，擅长数据挖掘与商业智能分析</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="booking-container">
+            <div class="booking-content fade-in">
+                <h2>免费试听课程<br>开启职业新篇章</h2>
+                <p>填写您的信息，预约免费试听课程。专业课程顾问将为您规划学习路径，助您快速入行。</p>
+                <div class="booking-features">
+                    <div class="booking-feature">
+                        <div class="booking-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <span>免费试听体验</span>
+                    </div>
+                    <div class="booking-feature">
+                        <div class="booking-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <span>职业规划指导</span>
+                    </div>
+                    <div class="booking-feature">
+                        <div class="booking-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <span>就业保障服务</span>
+                    </div>
+                    <div class="booking-feature">
+                        <div class="booking-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <span>分期付款方案</span>
+                    </div>
+                </div>
+            </div>
+            <form class="booking-form fade-in" id="bookingForm">
+                <h3 class="form-title">预约试听</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" name="name" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">联系电话</label>
+                        <input type="tel" id="phone" name="phone" placeholder="请输入手机号" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="course">意向课程</label>
+                        <select id="course" name="course">
+                            <option value="">请选择课程</option>
+                            <option value="frontend">前端开发工程师</option>
+                            <option value="python">Python全栈开发</option>
+                            <option value="data">数据分析与挖掘</option>
+                            <option value="ui">UI/UX设计师</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="education">学历水平</label>
+                        <select id="education" name="education">
+                            <option value="">请选择学历</option>
+                            <option value="high">高中/中专</option>
+                            <option value="college">大专</option>
+                            <option value="bachelor">本科</option>
+                            <option value="master">硕士及以上</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">备注说明</label>
+                    <textarea id="message" name="message" placeholder="请描述您的学习需求或疑问"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">提交预约</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="contact">
+        <div class="section-header fade-in">
+            <p class="section-label">Contact Us</p>
+            <h2 class="section-title">联系我们</h2>
+            <p class="section-description">欢迎莅临校区参观咨询</p>
+        </div>
+        <div class="map-container">
+            <div class="contact-info fade-in">
+                <h3>校区信息</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>校区地址</h4>
+                        <p>北京市海淀区中关村大街1号<br>海龙大厦B座15层</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>咨询热线</h4>
+                        <p>400-888-7777<br>010-8888-7777</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>营业时间</h4>
+                        <p>周一至周日 9:00-21:00<br>节假日正常营业</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div class="contact-details">
+                        <h4>电子邮箱</h4>
+                        <p>info@qihangedu.com<br>service@qihangedu.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-wrapper fade-in">
+                <iframe src="https://map.baidu.com/@12956542.36,4837283.67,12z" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-text">启航<span style="background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">教育</span></span>
+                <p>启航教育专注职业技能培训10年，致力于为每一位学员提供高质量的培训服务，帮助学员实现职业梦想。我们相信，技能改变命运，学习成就未来。</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="微信">
+                        <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 01-.023-.156.49.49 0 01.201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-7.062-6.122zm-2.036 2.96c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982z"/></svg>
+                    </a>
+                    <a href="#" aria-label="微博">
+                        <svg viewBox="0 0 24 24"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.194.573zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.579-.18-.405-.649.388-1.032.428-1.922.008-2.556-.786-1.187-2.93-1.124-5.369-.032 0 0-.769.334-.573-.271.378-1.2.32-2.206-.268-2.787-1.334-1.318-4.881.048-7.921 3.051C1.455 10.36 0 12.726 0 14.775c0 3.917 5.021 6.299 9.937 6.299 6.433 0 10.712-3.738 10.712-6.707 0-1.795-1.514-2.816-2.59-3.218zm2.86-5.378c-.793-.877-1.962-1.271-3.003-1.094-.224.038-.373.25-.335.473.038.224.25.373.473.335.727-.123 1.539.153 2.093.767.553.613.732 1.443.501 2.148-.072.217.046.452.263.524.217.072.452-.046.524-.263.322-.988.07-2.143-.516-2.89zm1.048-2.517c-1.314-1.454-3.251-1.975-4.98-1.531-.223.057-.358.283-.301.506.057.223.283.358.506.301 1.415-.364 2.99.063 4.067 1.254 1.076 1.19 1.328 2.802.818 4.168-.079.214.03.452.244.531.214.079.452-.03.531-.244.629-1.688.316-3.68-.885-4.985z"/></svg>
+                    </a>
+                    <a href="#" aria-label="抖音">
+                        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>热门课程</h4>
+                <ul>
+                    <li><a href="#">前端开发工程师</a></li>
+                    <li><a href="#">Python全栈开发</a></li>
+                    <li><a href="#">数据分析与挖掘</a></li>
+                    <li><a href="#">UI/UX设计师</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">机构简介</a></li>
+                    <li><a href="#">师资团队</a></li>
+                    <li><a href="#">校区环境</a></li>
+                    <li><a href="#">合作企业</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>学员服务</h4>
+                <ul>
+                    <li><a href="#">免费试听</a></li>
+                    <li><a href="#">就业保障</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">学员故事</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 启航教育 版权所有 | 京ICP备12345678号</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('预约成功！课程顾问将在24小时内与您联系。');
+            this.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
